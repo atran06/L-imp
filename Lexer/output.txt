@@ -1,26 +1,37 @@
-Line: 34 + 89 - x * y23 :=3
-34 : NUMBER
-+ : PUNCTUATION
-89 : NUMBER
-- : PUNCTUATION
-x : IDENTIFIER
-* : PUNCTUATION
-y23 : IDENTIFIER
+Line: x32 := 36 - y;
+x32 : IDENTIFIER
 := : PUNCTUATION
-3 : NUMBER
-
-Line: cxo6y / 67z23 * 56 & 34 * x
-cxo6y : IDENTIFIER
-/ : PUNCTUATION
-67 : NUMBER
-z23 : IDENTIFIER
-* : PUNCTUATION
-56 : NUMBER
-ERROR READING: "&"
-
-Line: 2 + x;
-2 : NUMBER
-+ : PUNCTUATION
-x : IDENTIFIER
+36 : NUMBER
+- : PUNCTUATION
+y : IDENTIFIER
 ; : PUNCTUATION
+
+Line: if y then
+if : KEYWORD
+y : IDENTIFIER
+then : KEYWORD
+
+Line: x32 :=0; skip
+x32 : IDENTIFIER
+:= : PUNCTUATION
+0 : NUMBER
+; : PUNCTUATION
+skip : KEYWORD
+
+Line: else
+else : KEYWORD
+
+Line: whiley := 12^2;
+whiley : IDENTIFIER
+:= : PUNCTUATION
+12 : NUMBER
+ERROR READING: "^2"
+
+Line: z:= x32
+z : IDENTIFIER
+:= : PUNCTUATION
+x32 : IDENTIFIER
+
+Line: endif
+endif : KEYWORD
 

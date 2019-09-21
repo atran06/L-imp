@@ -4,14 +4,17 @@ Author: Arthur Tran
 Class: Comp141 - Programming Lanuages
 
 File Description: Basic lexer/scanner that scans for PUNCTUATION, IDENTIFIERs, and NUMBERs.
-                  RegEx:    IDENIFIER=([a-z] | [A-Z])([a-z] | [A-Z] | [0-9])*
-                            NUMBER=[0-9]+
-                            PUNCTUATION=\+ | \- | \* | / | \( | \) | \; | \:\=
+                  RegEx:    IDENIFIER = ([a-z] | [A-Z])([a-z] | [A-Z] | [0-9])*
+                            NUMBER = [0-9]+
+                            PUNCTUATION = \+ | \- | \* | / | \( | \) | \; | \:\=
+                            KEYWORD = if|then|else|endif|while|do|endwhile|skip
                   Instructions on how to use the program are contained in 'instructions.txt'.
 '''
 
 import sys
 import re
+
+keywords = ["if", "then", "else", "endif", "while", "do", "endwhile", "skip"]
 
 # Function: scan
 # Description: Takes in a line, scans it for tokens, and returns a list of said tokens
@@ -52,7 +55,7 @@ def scan(line):
 
     if token != "": basicTokens.append(token) # adds the last token into the list
 
-    # second pass to check for tokens starting with numbers 
+    # second pass to check for tokens that are starting with numbers 
     for string in basicTokens:
         # checking if token/identifier begins with a digit and whether or not the entire token is already a digit
         # also checks if the length is 1 which means that it's impossible for the string to contain more than 1 token
@@ -78,6 +81,7 @@ def scan(line):
 # Returns: the token type coresponding to the given token
 def identifyTokens(token):
     if re.search("\+|\-|\*|/|\(|\)|\;|\:\=", token): return "PUNCTUATION"
+    elif token in keywords: return "KEYWORD"
     elif token[0].isdigit(): return "NUMBER"
     elif token[0].isalpha(): return "IDENTIFIER"
     else: return "ERROR"
