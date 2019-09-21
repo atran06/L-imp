@@ -28,7 +28,7 @@ def scan(line):
             if token != "": 
                 basicTokens.append(token) # appends the substring from last append to whitespace
                 token = "" 
-        elif re.search("\+|\-|\*|/|\(|\)", char): # uses regular expressions to check for punctuation
+        elif re.search("\+|\-|\*|/|\(|\)|\;", char): # uses regular expressions to check for punctuation
             if token != "": 
                 basicTokens.append(token) # appends the substring from last append to punctuation
                 token = ""
