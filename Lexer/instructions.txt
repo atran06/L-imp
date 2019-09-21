@@ -1,0 +1,13 @@
+Language: Python
+Version: 3.7.3
+Operating System: Windows
+
+Currently, the program is made to be run with this command in the command line: 
+    python lexer.py <INPUT FILENAME> > <OUTPUT FILENAME>
+
+For example, the included input and output files included would be used like:
+    python lexer.py input.txt > output.txt
+
+However, the user could also go into line 72 of lexer.py and change the line to a hardcoded input file. Then use the 
+command: python lexer.py to run the program and have the results printed out to the console. One could also run:
+python lexer.py > <OUTPUT FILENAME> to output the hardcoded input file to a specific file. 
