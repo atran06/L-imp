@@ -85,3 +85,22 @@ def identifyTokens(token):
     elif token[0].isdigit(): return "NUMBER"
     elif token[0].isalpha(): return "IDENTIFIER"
     else: return "ERROR"
+
+def getTokensAndType(filename):
+    tokensAndType = [] # holds a list of pairs of (TOKEN, TOKENTYPE)
+
+    for line in filename:
+        # print("Line: ", line.strip())
+
+        tokens = scan(line.strip())
+
+        for token in tokens:
+            tokenName = identifyTokens(token) # holds the type of token
+
+            tokensAndType.append((token, tokenName)) # adds the pair to list
+            
+            # print(token, " : ", tokenName)
+
+        # print("")
+
+    return tokensAndType
