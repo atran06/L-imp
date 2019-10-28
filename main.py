@@ -4,11 +4,10 @@ import parserE
 
 def preOrderTraversal(root, indent):
     if root != None:
-        for i in range(indent):
-            print("\t" * indent, end = "")
-        print(root.data, " : ", root.tokenType)
+        print("\t" * indent, end = "") # prints the indentation
+        print(root.data, " : ", root.tokenType) # prints the current node
 
-        indent += 1
+        indent += 1 # increments the indent by one for each sub tree
 
         preOrderTraversal(root.left, indent)
         preOrderTraversal(root.right, indent)
@@ -21,9 +20,9 @@ def main():
 
     tokensAndTypes = lexer.getTokensAndType(inputFile) # list of all tokens and types in the input file
 
-    parseTree = parserE.parseTokens(tokensAndTypes)
+    parseTree = parserE.parseTokens(tokensAndTypes) # generated parse tree using the list of tokens
 
-    preOrderTraversal(parseTree, 0)
+    preOrderTraversal(parseTree, 0) # uses preorder traversal to print the tree
 
 if __name__ == "__main__":
     main()
