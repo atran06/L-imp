@@ -2,7 +2,7 @@
 File Description: Basic lexer/scanner that scans for PUNCTUATION, IDENTIFIERs, and NUMBERs.
                   RegEx:    IDENIFIER = ([a-z] | [A-Z])([a-z] | [A-Z] | [0-9])*
                             NUMBER = [0-9]+
-                            PUNCTUATION = \+ | \- | \* | / | \( | \) | \; | \:\=
+                            PUNCTUATION = \+ | \- | \* | / | \( | \) | \; | \: | \=
                             KEYWORD = if|then|else|endif|while|do|endwhile|skip
                   Instructions on how to use the program are contained in 'instructions.txt'.
 '''
@@ -76,21 +76,20 @@ def scan(line):
 # Parameters: token - token to be identified
 # Returns: the token type coresponding to the given token
 def identifyTokens(token):
-    if re.search("\+|\-|\*|/|\(|\)|\;|\:\=", token): return "PUNCTUATION"
+    if re.search("\+|\-|\*|/|\(|\)|\;|\:|\=", token): return "PUNCTUATION"
     elif token in keywords: return "KEYWORD"
     elif token[0].isdigit(): return "NUMBER"
     elif token[0].isalpha(): return "IDENTIFIER"
     else: return "ERROR"
 
-def getTokensAndType(filename):
+def getTokensAndType(line):
     tokensAndType = [] # holds a list of pairs of (TOKEN, TOKENTYPE)
 
-    for line in filename:
-        tokens = scan(line.strip())
+    tokens = scan(line.strip())
 
-        for token in tokens:
-            tokenName = identifyTokens(token) # holds the type of token
+    for token in tokens:
+        tokenName = identifyTokens(token) # holds the type of token
 
-            tokensAndType.append((token, tokenName)) # adds the pair to list
+        tokensAndType.append((token, tokenName)) # adds the pair to list
             
     return tokensAndType

@@ -11,7 +11,9 @@ File Description: Parser that uses a list of tokens and their types to construct
 from tree import Tree
 
 def parseNumber(tokensAndTypes):
-    if tokensAndTypes[0][1] != "NUMBER": return
+    if tokensAndTypes[0][1] != "NUMBER": 
+        print("ERROR")
+        return
 
     token = tokensAndTypes[0]
     tokensAndTypes.pop(0) # removes the current token from the list of tokens
@@ -19,7 +21,9 @@ def parseNumber(tokensAndTypes):
     return Tree(token[0], token[1], None, None)
 
 def parseIdentifier(tokensAndTypes):
-    if tokensAndTypes[0][1] != "IDENTIFIER": return
+    if tokensAndTypes[0][1] != "IDENTIFIER": 
+        print("ERROR")
+        return
 
     token = tokensAndTypes[0]
     tokensAndTypes.pop(0) # removes the current token from the list of tokens
@@ -34,7 +38,9 @@ def parseElement(tokensAndTypes):
 
         tree = parseExpression(tokensAndTypes)
 
-        if tokensAndTypes[0][0] != ")": return
+        if tokensAndTypes[0][0] != ")": 
+            print("ERROR")
+            return
         tokensAndTypes.pop(0) # removes the current token from the list of tokens (used to ommit parenthesis from the tree)
 
     elif tokensAndTypes[0][1] == "NUMBER": tree = parseNumber(tokensAndTypes)

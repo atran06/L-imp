@@ -27,18 +27,17 @@ AST:
 
 
 
-Line:  3 + 24 
+Line:  24 + 1124 
 
 Tokens: 
-3  :  NUMBER
+24  :  NUMBER
 +  :  PUNCTUATION
-2  :  NUMBER
-4  :  NUMBER
+1124  :  NUMBER
 
 AST: 
 +  :  PUNCTUATION
-	3  :  NUMBER
-	2  :  NUMBER
+	24  :  NUMBER
+	1124  :  NUMBER
 
 
 
