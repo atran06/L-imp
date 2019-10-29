@@ -1,24 +1,44 @@
-Line: 34 + 89 - x * y23
-34 : NUMBER
-+ : PUNCTUATION
-89 : NUMBER
-- : PUNCTUATION
-x : IDENTIFIER
-* : PUNCTUATION
-y23 : IDENTIFIER
+Line:  3 * (5 + 2 / x - 1)
+ 
 
-Line: cxo6y / 67z23 * 56 & 34 * x
-cxo6y : IDENTIFIER
-/ : PUNCTUATION
-67 : NUMBER
-z23 : IDENTIFIER
-* : PUNCTUATION
-56 : NUMBER
-ERROR READING: "&"
+Tokens: 
+3  :  NUMBER
+*  :  PUNCTUATION
+(  :  PUNCTUATION
+5  :  NUMBER
++  :  PUNCTUATION
+2  :  NUMBER
+/  :  PUNCTUATION
+x  :  IDENTIFIER
+-  :  PUNCTUATION
+1  :  NUMBER
+)  :  PUNCTUATION
 
-Line: 2 + x;
-2 : NUMBER
-+ : PUNCTUATION
-x : IDENTIFIER
-; : PUNCTUATION
+AST: 
+*  :  PUNCTUATION
+	3  :  NUMBER
+	+  :  PUNCTUATION
+		5  :  NUMBER
+		-  :  PUNCTUATION
+			/  :  PUNCTUATION
+				2  :  NUMBER
+				x  :  IDENTIFIER
+			1  :  NUMBER
+
+
+
+Line:  3 + 24 
+
+Tokens: 
+3  :  NUMBER
++  :  PUNCTUATION
+2  :  NUMBER
+4  :  NUMBER
+
+AST: 
++  :  PUNCTUATION
+	3  :  NUMBER
+	2  :  NUMBER
+
+
 

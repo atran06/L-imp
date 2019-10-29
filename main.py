@@ -22,15 +22,28 @@ def preOrderTraversal(root, indent):
 
     return 
 
+def printTokensAndTypes(tokensAndTypes):
+    for tokenAndType in tokensAndTypes:
+        print(tokenAndType[0], " : ", tokenAndType[1])
+
 def main():
     # opens the input file specified when running script from terminal
     inputFile = open(sys.argv[1]) # can change this line to inputFile = open("FILENAME", "r")
+    lines = inputFile.readlines()
 
-    tokensAndTypes = lexer.getTokensAndType(inputFile) # list of all tokens and types in the input file
+    for line in lines:
+        print("Line: ", line, "\n")
 
-    parseTree = parser.parseTokens(tokensAndTypes) # generated parse tree using the list of tokens
+        tokensAndTypes = lexer.getTokensAndType(line.strip())
 
-    preOrderTraversal(parseTree, 0) # uses preorder traversal to print the tree
+        print("Tokens: ")
+        printTokensAndTypes(tokensAndTypes)
+        print("")
+
+        print("AST: ")
+        preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
+
+        print("\n\n")
 
 if __name__ == "__main__":
     main()
