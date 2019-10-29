@@ -1,3 +1,13 @@
+'''
+Parser Specification
+
+expression -> term {+ term}
+term -> factor {- factor}
+factor -> piece {/ piece}
+piece -> element {* element}
+element -> (expresssion) | NUMBER | IDENTIFIER
+'''
+
 from tree import Tree
 
 def parseNumber(tokensAndTypes):
