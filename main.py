@@ -7,8 +7,8 @@ Instructions on how to use the program are contained in 'instructions.txt'.
 '''
 
 import sys
-import lexer
-import parserE
+import LIMP_Lexer as lexer
+import LIMP_Parser as parser
 
 def preOrderTraversal(root, indent):
     if root != None:
@@ -28,7 +28,7 @@ def main():
 
     tokensAndTypes = lexer.getTokensAndType(inputFile) # list of all tokens and types in the input file
 
-    parseTree = parserE.parseTokens(tokensAndTypes) # generated parse tree using the list of tokens
+    parseTree = parser.parseTokens(tokensAndTypes) # generated parse tree using the list of tokens
 
     preOrderTraversal(parseTree, 0) # uses preorder traversal to print the tree
 
