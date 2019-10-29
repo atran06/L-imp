@@ -3,12 +3,7 @@ Project Phase 1.1
 Author: Arthur Tran
 Class: Comp141 - Programming Lanuages
 
-File Description: Basic lexer/scanner that scans for PUNCTUATION, IDENTIFIERs, and NUMBERs.
-                  RegEx:    IDENIFIER = ([a-z] | [A-Z])([a-z] | [A-Z] | [0-9])*
-                            NUMBER = [0-9]+
-                            PUNCTUATION = \+ | \- | \* | / | \( | \) | \; | \:\=
-                            KEYWORD = if|then|else|endif|while|do|endwhile|skip
-                  Instructions on how to use the program are contained in 'instructions.txt'.
+Instructions on how to use the program are contained in 'instructions.txt'.
 '''
 
 import sys

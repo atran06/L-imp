@@ -1,11 +1,11 @@
 '''
-Parser Specification
-
-expression -> term {+ term}
-term -> factor {- factor}
-factor -> piece {/ piece}
-piece -> element {* element}
-element -> (expresssion) | NUMBER | IDENTIFIER
+File Description: Parser that uses a list of tokens and their types to construct parse trees.
+                  Parser Specification: expression -> term {+ term}
+                                        term -> factor {- factor}
+                                        factor -> piece {/ piece}
+                                        piece -> element {* element}
+                                        element -> (expresssion) | NUMBER | IDENTIFIER
+                  Instructions on how to use the program are contained in 'instructions.txt'.
 '''
 
 from tree import Tree
