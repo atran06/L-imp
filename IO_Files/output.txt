@@ -1,5 +1,4 @@
-Line:  3 * (5 + 2 / x - 1)
- 
+Line:  3 * (5 + 2 / x - 1) 
 
 Tokens: 
 3  :  NUMBER

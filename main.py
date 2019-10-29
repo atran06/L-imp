@@ -32,7 +32,7 @@ def main():
     lines = inputFile.readlines()
 
     for line in lines:
-        print("Line: ", line, "\n")
+        print("Line: ", line.strip(), "\n")
 
         tokensAndTypes = lexer.getTokensAndType(line.strip())
 
