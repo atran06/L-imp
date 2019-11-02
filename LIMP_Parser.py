@@ -12,8 +12,7 @@ from tree import Tree
 
 def parseNumber(tokensAndTypes):
     if tokensAndTypes[0][1] != "NUMBER": 
-        print("ERROR")
-        return
+        raise Exception("parseNumber Error")
 
     token = tokensAndTypes[0]
     tokensAndTypes.pop(0) # removes the current token from the list of tokens
@@ -22,8 +21,7 @@ def parseNumber(tokensAndTypes):
 
 def parseIdentifier(tokensAndTypes):
     if tokensAndTypes[0][1] != "IDENTIFIER": 
-        print("ERROR")
-        return
+        raise Exception("parseIdentifier Error")
 
     token = tokensAndTypes[0]
     tokensAndTypes.pop(0) # removes the current token from the list of tokens
@@ -39,8 +37,8 @@ def parseElement(tokensAndTypes):
         tree = parseExpression(tokensAndTypes)
 
         if tokensAndTypes[0][0] != ")": 
-            print("ERROR")
-            return
+            raise Exception("parseElement Error")
+
         tokensAndTypes.pop(0) # removes the current token from the list of tokens (used to ommit parenthesis from the tree)
 
     elif tokensAndTypes[0][1] == "NUMBER": tree = parseNumber(tokensAndTypes)
