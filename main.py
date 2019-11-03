@@ -18,6 +18,7 @@ def preOrderTraversal(root, indent):
         indent += 1 # increments the indent by one for each sub tree
 
         preOrderTraversal(root.left, indent)
+        preOrderTraversal(root.middle, indent)
         preOrderTraversal(root.right, indent)
 
     return 

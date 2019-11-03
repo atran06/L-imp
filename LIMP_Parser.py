@@ -17,7 +17,7 @@ def parseNumber(tokensAndTypes):
     token = tokensAndTypes[0]
     tokensAndTypes.pop(0) # removes the current token from the list of tokens
 
-    return Tree(token[0], token[1], None, None)
+    return Tree(token[0], token[1], None, None, None)
 
 def parseIdentifier(tokensAndTypes):
     if tokensAndTypes[0][1] != "IDENTIFIER": 
@@ -26,7 +26,7 @@ def parseIdentifier(tokensAndTypes):
     token = tokensAndTypes[0]
     tokensAndTypes.pop(0) # removes the current token from the list of tokens
 
-    return Tree(token[0], token[1], None, None)
+    return Tree(token[0], token[1], None, None, None)
 
 def parseElement(tokensAndTypes):
     tree = None
@@ -51,7 +51,7 @@ def parsePiece(tokensAndTypes):
 
     while len(tokensAndTypes) > 0 and tokensAndTypes[0][0] == "*":
         tokensAndTypes.pop(0) # removes the current token from the list of tokens
-        tree = Tree("*", "PUNCTUATION", tree, parseElement(tokensAndTypes)) # creates a new subtree with the punctuation as the root
+        tree = Tree("*", "PUNCTUATION", tree, None, parseElement(tokensAndTypes)) # creates a new subtree with the punctuation as the root
 
     return tree
 
@@ -60,7 +60,7 @@ def parseFactor(tokensAndTypes):
 
     while len(tokensAndTypes) > 0 and tokensAndTypes[0][0] == "/":
         tokensAndTypes.pop(0) # removes the current token from the list of tokens
-        tree = Tree("/", "PUNCTUATION", tree, parsePiece(tokensAndTypes)) # creates a new subtree with the punctuation as the root
+        tree = Tree("/", "PUNCTUATION", tree, None, parsePiece(tokensAndTypes)) # creates a new subtree with the punctuation as the root
 
     return tree
 
@@ -69,7 +69,7 @@ def parseTerm(tokensAndTypes):
 
     while len(tokensAndTypes) > 0 and tokensAndTypes[0][0] == "-":
         tokensAndTypes.pop(0) # removes the current token from the list of tokens
-        tree = Tree("-", "PUNCTUATION", tree, parseFactor(tokensAndTypes)) # creates a new subtree with the punctuation as the root
+        tree = Tree("-", "PUNCTUATION", tree, None, parseFactor(tokensAndTypes)) # creates a new subtree with the punctuation as the root
 
     return tree
 
@@ -78,7 +78,7 @@ def parseExpression(tokensAndTypes):
 
     while len(tokensAndTypes) > 0 and tokensAndTypes[0][0] == "+":
         tokensAndTypes.pop(0) # removes the current token from the list of tokens
-        tree = Tree("+", "PUNCTUATION", tree, parseTerm(tokensAndTypes)) # creates a new subtree with the punctuation as the root
+        tree = Tree("+", "PUNCTUATION", tree, None, parseTerm(tokensAndTypes)) # creates a new subtree with the punctuation as the root
 
     return tree
 
