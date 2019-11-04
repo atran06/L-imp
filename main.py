@@ -32,20 +32,29 @@ def main():
     inputFile = open(sys.argv[1]) # can change this line to inputFile = open("FILENAME", "r")
     lines = inputFile.readlines()
 
+    tokensAndTypes = []
+
     for line in lines:
         if not line.strip() == "":
-            print("Line: ", line.strip(), "\n")
+            # print("Line: ", line.strip(), "\n")
 
-            tokensAndTypes = lexer.getTokensAndType(line.strip())
+            tokensAndTypes.extend(lexer.getTokensAndType(line.strip()))
 
-            print("Tokens: ")
-            printTokensAndTypes(tokensAndTypes)
-            print("")
+            # print("Tokens: ")
+            # printTokensAndTypes(tokensAndTypes)
+            # print("")
 
-            print("AST: ")
+            # print("AST: ")
             # preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
 
-            print("\n\n")
+            # print("\n\n")
+    
+    print("Tokens: ")
+    printTokensAndTypes(tokensAndTypes)
+    print("")
+
+    print("AST: ")
+    preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
 
 if __name__ == "__main__":
     main()
