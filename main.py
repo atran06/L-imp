@@ -33,18 +33,19 @@ def main():
     lines = inputFile.readlines()
 
     for line in lines:
-        print("Line: ", line.strip(), "\n")
+        if not line.strip() == "":
+            print("Line: ", line.strip(), "\n")
 
-        tokensAndTypes = lexer.getTokensAndType(line.strip())
+            tokensAndTypes = lexer.getTokensAndType(line.strip())
 
-        print("Tokens: ")
-        printTokensAndTypes(tokensAndTypes)
-        print("")
+            print("Tokens: ")
+            printTokensAndTypes(tokensAndTypes)
+            print("")
 
-        print("AST: ")
-        preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
+            print("AST: ")
+            # preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
 
-        print("\n\n")
+            print("\n\n")
 
 if __name__ == "__main__":
     main()
