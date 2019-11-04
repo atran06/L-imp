@@ -19,27 +19,27 @@ from tree import Tree
 def parseWhileStatement(tokensAndTypes):
     tree = parseExpression(tokensAndTypes)
 
-    if tokensAndTypes[0][0] != "do": raise Exception("Missing 'do'")
+    if tokensAndTypes[0][0] != "do": raise Exception("Missing 'do'") # checks to make sure while statement contains 'do' after expression
     else:
-        tokensAndTypes.pop(0)
+        tokensAndTypes.pop(0) # removes the current token from the list of tokens
         tree = Tree("WHILE-LOOP", "KEYWORD", tree, None, parseStatement(tokensAndTypes))
 
-        if tokensAndTypes[0][0] != "endwhile": raise Exception("Missing 'endwhile'")
-        tokensAndTypes.pop(0)
+        if tokensAndTypes[0][0] != "endwhile": raise Exception("Missing 'endwhile'") # checks for 'endwhile' after statement
+        tokensAndTypes.pop(0) # removes the current token from the list of tokens
 
     return tree
 
 def parseIfStatement(tokensAndTypes):
     tree = parseExpression(tokensAndTypes)
 
-    if tokensAndTypes[0][0] != "then": raise Exception("Missing 'then'")
+    if tokensAndTypes[0][0] != "then": raise Exception("Missing 'then'") # checks for 'then' after expression
     else:
-        tokensAndTypes.pop(0)
-        statement1 = parseStatement(tokensAndTypes)
+        tokensAndTypes.pop(0) # removes the current token from the list of tokens
+        statement1 = parseStatement(tokensAndTypes) # first statement for the middle node of tree
 
-        if tokensAndTypes[0][0] != "else": raise Exception("Missing 'else'")
+        if tokensAndTypes[0][0] != "else": raise Exception("Missing 'else'") # checks for 'else' after statement
         else:
-            tokensAndTypes.pop(0)
+            tokensAndTypes.pop(0) # removes the current token from the list of tokens
             tree = Tree("IF-STATEMENT", "KEYWORD", tree, statement1, parseStatement(tokensAndTypes))
 
     return tree
@@ -48,7 +48,7 @@ def parseAssignment(tokensAndTypes):
     tree = parseIdentifier(tokensAndTypes)
 
     if tokensAndTypes[0][0] == ":=":
-        tokensAndTypes.pop(0)
+        tokensAndTypes.pop(0) # removes the current token from the list of tokens
         tree = Tree(":=", "PUNCTUATION", tree, None, parseExpression(tokensAndTypes))
 
     else:
@@ -64,15 +64,15 @@ def parseBaseStatement(tokensAndTypes):
             tree = parseAssignment(tokensAndTypes)
 
         elif tokensAndTypes[0][0] == "if":
-            tokensAndTypes.pop(0)
+            tokensAndTypes.pop(0) # removes the current token from the list of tokens
             tree = parseIfStatement(tokensAndTypes)
 
         elif tokensAndTypes[0][0] == "while":
-            tokensAndTypes.pop(0)
+            tokensAndTypes.pop(0) # removes the current token from the list of tokens
             tree = parseWhileStatement(tokensAndTypes)
 
         elif tokensAndTypes[0][0] == "skip":
-            tokensAndTypes.pop(0)
+            tokensAndTypes.pop(0) # removes the current token from the list of tokens
             tree = Tree("skip", "KEYWORD", None, None, None)  
 
     return tree
@@ -81,7 +81,7 @@ def parseStatement(tokensAndTypes):
     tree = parseBaseStatement(tokensAndTypes)
 
     while len(tokensAndTypes) > 0 and tokensAndTypes[0][0] == ";":
-        tokensAndTypes.pop(0)
+        tokensAndTypes.pop(0) # removes the current token from the list of tokens
         tree = Tree(";", "PUNCTUATION", tree, None, parseBaseStatement(tokensAndTypes))
     
     return tree

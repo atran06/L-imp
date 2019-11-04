@@ -1,59 +1,15 @@
 Tokens: 
-z  :  IDENTIFIER
-:=  :  PUNCTUATION
-0  :  NUMBER
-;  :  PUNCTUATION
 x  :  IDENTIFIER
 :=  :  PUNCTUATION
-10  :  NUMBER
+34  :  NUMBER
 ;  :  PUNCTUATION
-y  :  IDENTIFIER
-:=  :  PUNCTUATION
-0  :  NUMBER
+skip  :  KEYWORD
 ;  :  PUNCTUATION
-while  :  KEYWORD
-x  :  IDENTIFIER
--  :  PUNCTUATION
-y  :  IDENTIFIER
-do  :  KEYWORD
-z  :  IDENTIFIER
-:=  :  PUNCTUATION
-z  :  IDENTIFIER
-+  :  PUNCTUATION
-y  :  IDENTIFIER
-;  :  PUNCTUATION
-y  :  IDENTIFIER
-:=  :  PUNCTUATION
-y  :  IDENTIFIER
-+  :  PUNCTUATION
-1  :  NUMBER
-endwhile  :  KEYWORD
 
 AST: 
 ;  :  PUNCTUATION
 	;  :  PUNCTUATION
-		;  :  PUNCTUATION
-			:=  :  PUNCTUATION
-				z  :  IDENTIFIER
-				0  :  NUMBER
-			:=  :  PUNCTUATION
-				x  :  IDENTIFIER
-				10  :  NUMBER
 		:=  :  PUNCTUATION
-			y  :  IDENTIFIER
-			0  :  NUMBER
-	WHILE-LOOP  :  KEYWORD
-		-  :  PUNCTUATION
 			x  :  IDENTIFIER
-			y  :  IDENTIFIER
-		;  :  PUNCTUATION
-			:=  :  PUNCTUATION
-				z  :  IDENTIFIER
-				+  :  PUNCTUATION
-					z  :  IDENTIFIER
-					y  :  IDENTIFIER
-			:=  :  PUNCTUATION
-				y  :  IDENTIFIER
-				+  :  PUNCTUATION
-					y  :  IDENTIFIER
-					1  :  NUMBER
+			34  :  NUMBER
+		skip  :  KEYWORD
