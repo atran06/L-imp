@@ -9,6 +9,7 @@ Instructions on how to use the program are contained in 'instructions.txt'.
 import sys
 import LIMP_Lexer as lexer
 import LIMP_Parser as parser
+import LIMP_Evaluator as evaluator
 
 def preOrderTraversal(root, indent):
     if root != None:
@@ -49,12 +50,12 @@ def main():
 
             # print("\n\n")
     
-    print("Tokens: ")
-    printTokensAndTypes(tokensAndTypes)
-    print("")
+    # print("Tokens: ")
+    # printTokensAndTypes(tokensAndTypes)
+    # print("")
 
-    print("AST: ")
-    preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
+    # print("AST: ")
+    print(evaluator.evaluate(parser.parseExpression(tokensAndTypes)))
 
 if __name__ == "__main__":
     main()
