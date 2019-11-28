@@ -1,15 +1,27 @@
+Line: 3*(5 + 10 / 3 - 1) 
+
 Tokens: 
-x  :  IDENTIFIER
-:=  :  PUNCTUATION
-34  :  NUMBER
-;  :  PUNCTUATION
-skip  :  KEYWORD
-;  :  PUNCTUATION
+3  :  NUMBER
+*  :  PUNCTUATION
+(  :  PUNCTUATION
+5  :  NUMBER
++  :  PUNCTUATION
+10  :  NUMBER
+/  :  PUNCTUATION
+3  :  NUMBER
+-  :  PUNCTUATION
+1  :  NUMBER
+)  :  PUNCTUATION
 
 AST: 
-;  :  PUNCTUATION
-	;  :  PUNCTUATION
-		:=  :  PUNCTUATION
-			x  :  IDENTIFIER
-			34  :  NUMBER
-		skip  :  KEYWORD
+*  :  PUNCTUATION
+	3  :  NUMBER
+	+  :  PUNCTUATION
+		5  :  NUMBER
+		-  :  PUNCTUATION
+			/  :  PUNCTUATION
+				10  :  NUMBER
+				3  :  NUMBER
+			1  :  NUMBER
+
+Output: 21

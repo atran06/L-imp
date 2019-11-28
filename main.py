@@ -37,25 +37,20 @@ def main():
 
     for line in lines:
         if not line.strip() == "":
-            # print("Line: ", line.strip(), "\n")
-
+            print("Line:", line, "\n")
             tokensAndTypes.extend(lexer.getTokensAndType(line.strip()))
-
-            # print("Tokens: ")
-            # printTokensAndTypes(tokensAndTypes)
-            # print("")
-
-            # print("AST: ")
-            # preOrderTraversal(parser.parseTokens(tokensAndTypes), 0)
-
-            # print("\n\n")
     
-    # print("Tokens: ")
-    # printTokensAndTypes(tokensAndTypes)
-    # print("")
+    print("Tokens: ")
+    printTokensAndTypes(tokensAndTypes)
+    print("")
 
-    # print("AST: ")
-    print(evaluator.evaluate(parser.parseExpression(tokensAndTypes)))
+    ast = parser.parseExpression(tokensAndTypes)
+
+    print("AST: ")
+    preOrderTraversal(ast, 0)
+    print("")
+
+    print("Output:", evaluator.evaluate(ast))
 
 if __name__ == "__main__":
     main()
